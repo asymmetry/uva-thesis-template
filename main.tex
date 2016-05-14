@@ -32,7 +32,13 @@
 \usepackage{cmap}
 \usepackage[T1]{fontenc}
 \usepackage{indentfirst}
+\usepackage[colorlinks=true,bookmarks=true]{hyperref}
+  \usepackage{bookmark}
+  \hypersetup{breaklinks=true}
 \pagestyle{plain}
+
+%% Addtional packages
+
 
 %% This bit allows you to either specify only the files which you wish to
 %% process, or `all' to process all files which you \include.
@@ -44,15 +50,25 @@
 
 \begin{document}
 
+\hypersetup{pageanchor=false}
 \pagenumbering{roman}
 \include{cover}
+\hypersetup{pageanchor=true}
+
+\hypersetup{linkcolor=black}
 \pagestyle{plain}
 \include{contents}
+\hypersetup{linkcolor=red}
+
 \pagenumbering{arabic}
 \include{chap1}
 \appendix
 \include{appa}
+
+\cleardoublepage
+\pdfbookmark[0]{Bibliography}{Bibliography}
 \include{biblio}
+\cleardoublepage
 
 \end{document}
 
